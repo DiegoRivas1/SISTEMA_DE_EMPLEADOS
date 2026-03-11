@@ -1,5 +1,6 @@
 package gm.empleados.servicio;
 
+import gm.empleados.modelo.Departamento;
 import gm.empleados.modelo.Empleado;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface IEmpleadoServicio {
     public void guardarEmpleado(Empleado empleado);
     public void eliminarEmpleado(Empleado empleado);
 
+    public List<Empleado> listarEmpleadosActivos();
+    public List<Empleado> listarPorDepartamento(Departamento departamento);
 }

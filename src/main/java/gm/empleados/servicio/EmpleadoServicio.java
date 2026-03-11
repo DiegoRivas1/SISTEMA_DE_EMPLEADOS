@@ -1,5 +1,6 @@
 package gm.empleados.servicio;
 
+import gm.empleados.modelo.Departamento;
 import gm.empleados.modelo.Empleado;
 import gm.empleados.repositorio.EmpleadoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,15 @@ public class EmpleadoServicio implements IEmpleadoServicio{
     @Override
     public void eliminarEmpleado(Empleado empleado) {
         empleadoRepositorio.delete(empleado);
+    }
+
+    @Override
+    public List<Empleado> listarEmpleadosActivos() {
+        return empleadoRepositorio.findByActivoTrue();
+    }
+
+    @Override
+    public  List<Empleado> listarPorDepartamento(Departamento departamento){
+        return empleadoRepositorio.findByDepartamento(departamento);
     }
 }

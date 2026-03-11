@@ -1,65 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%
-    String prefix = "c";
-    String uri = "http://java.sun.com/jspjstl/core";
-%>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
-    <title>Sistema de Empleados</title>
-</head>
-
-<body>
+<%@include file="comunes/cabecero.jsp"%>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-    <div class="container">
-        <a class="navbar-brand" href="/">
-            <i class="bi bi-people"></i> Sistema de Empleados
-        </a>
-
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav ms-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="/">
-                        <i class="bi bi-house"></i> Inicio
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/agregar">
-                        <i class="bi bi-person-plus"></i> Agregar Empleado
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-    </div>
-</nav>
-
+<%@include file="comunes/navegacion.jsp"%>
 
 <!-- HERO / ENCABEZADO -->
 <div class="container mt-4">
@@ -73,7 +15,7 @@
             </h1>
 
             <p class="fs-5">
-                Administra y controla los empleados de tu empresa fácilmente
+                Administra y controla los empleados de tu empresa facilmente
             </p>
 
             <a href="/agregar" class="btn btn-primary btn-lg">
@@ -103,7 +45,7 @@
                     <h5 class="card-title mt-3">Empleados</h5>
 
                     <p class="display-6">
-                        25
+                        ${empleados.size()}
                     </p>
 
                 </div>
@@ -124,7 +66,7 @@
                     <h5 class="card-title mt-3">Departamentos</h5>
 
                     <p class="display-6">
-                        5
+                        ${totalDepartamentos}
                     </p>
 
                 </div>
@@ -179,14 +121,14 @@
         </thead>
 
         <tbody>
-            <c:forEach var="empleados" items="${empleados}">
+            <c:forEach var="empleado" items="${empleados}">
                 <tr>
-                    <td>${empleados.idEmpleado}</td>
-                    <td>${empleados.nombreEmpleado}</td>
-                    <td>${empleados.departamento}</td>
+                    <td>${empleado.idEmpleado}</td>
+                    <td>${empleado.nombreEmpleado}</td>
+                    <td>${empleado.departamento}</td>
                     <td>
                         <fmt:setLocale value="en_US"/>
-                        <fmt:formatNumber type="currency" value="${empleados.sueldo}"/>
+                        <fmt:formatNumber type="currency" value="${empleado.sueldo}"/>
                     </td>
                     <td>
                         <button class="btn btn-warning btn-sm">
@@ -198,7 +140,8 @@
                     </td>
                 </tr>
             </c:forEach>
-            <tr>
+            <!--
+             <tr>
                 <td>1</td>
                 <td>Juan Perez</td>
                 <td>IT</td>
@@ -215,6 +158,7 @@
 
                 </td>
             </tr>
+             -->
         </tbody>
 
     </table>
@@ -222,8 +166,6 @@
 </div>
 
 
-<!-- JS Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JS Bootstrap Pie de pagina-->
+<%@include file="comunes/pie-pagina.jsp"%>
 
-</body>
-</html>

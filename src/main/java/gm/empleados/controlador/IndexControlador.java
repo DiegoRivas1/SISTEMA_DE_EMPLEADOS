@@ -1,5 +1,6 @@
 package gm.empleados.controlador;
 
+import gm.empleados.modelo.Departamento;
 import gm.empleados.modelo.Empleado;
 import gm.empleados.servicio.EmpleadoServicio;
 import org.slf4j.Logger;
@@ -25,7 +26,8 @@ public class IndexControlador {
         empleados.forEach(empleado -> logger.info(empleado.toString()));
 
         //Compartimos el modelo con la vista
-        modelo.put("empleados", empleados);//"empleados" -> List<Empleado>
+        modelo.put("empleados", empleados);//"empleados" -> List<Empleado> total de empleados
+        modelo.put("totalDepartamentos", Departamento.values().length);//Enviamos la cantidad de deparamentos
         return "index";//index.jsp
     }
 }
