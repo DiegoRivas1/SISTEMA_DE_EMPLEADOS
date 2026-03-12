@@ -10,7 +10,7 @@
         </h3>
     </div>
 
-    <form:form action="${ctx}/editar" modelAttribute="empleadoForma" method="post">
+    <form action="${ctx}/editar" modelAttribute="empleadoForma" method="post">
         <input type="hidden" name="idEmpleado" value="${empleado.idEmpleado}" />
         <div class="mb-3">
             <label for="nombreEmpleado" class="form-label">Nombre Empleado</label>
@@ -59,7 +59,7 @@
             <button type="submit" class="btn btn-primary">Editar</button>
             <a href="${ctx}/" class="btn btn-danger btn-sm">Regresar</a>
         </div>
-    </form:form>
+    </form>
 </div>
 
 <%@include file="comunes/pie-pagina.jsp"%>

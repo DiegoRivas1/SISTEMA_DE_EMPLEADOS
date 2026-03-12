@@ -68,6 +68,13 @@ public class IndexControlador {
         return "editar";//editar.jsp
     }
 
+    @RequestMapping(value = "/editar", method = RequestMethod.POST)
+    public String editar(@ModelAttribute("empleadaoForma") Empleado empleado){
+        logger.info("Empleado a guardar (editar):" + empleado);
+        empleadoServicio.guardarEmpleado(empleado);
+        return "redirect:/"; //para que se llame de neuvo e index para que se recargue la linea de empleados
+    }
+
 
 
 
