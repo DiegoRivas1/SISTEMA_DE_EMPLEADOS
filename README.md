@@ -10,8 +10,6 @@ CRUD completas, filtrado dinámico y un dashboard visual moderno.
 
 ![Demo](screenshots/sistema_empleados_gif.gif)
 
-> Coloca aquí un GIF del funcionamiento del sistema.
-
 ------------------------------------------------------------------------
 
 ## Tecnologías utilizadas
