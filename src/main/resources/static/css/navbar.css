@@ -1,0 +1,53 @@
+/* =========================
+   NAVBAR ESTILO MODERNO
+========================= */
+
+.navbar-custom{
+    transition: all 0.3s ease;
+}
+
+/* Hover en links */
+.nav-hover{
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-hover:hover{
+    transform: translateY(-2px);
+    color: #0d6efd !important;
+}
+
+/* Animación iconos */
+.nav-hover i{
+    transition: transform 0.3s;
+}
+
+.nav-hover:hover i{
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Logo animado */
+.brand-custom{
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.brand-custom:hover{
+    transform: scale(1.05);
+}
+
+/* Dropdown estilo */
+.dropdown-menu{
+    border-radius: 10px;
+}
+
+/* Estadisticas navbar */
+.stats-navbar{
+    margin-left: 20px;
+}
+
+/* Badge animado */
+.badge{
+    font-size: 0.9rem;
+    padding: 7px 10px;
+}

@@ -6,7 +6,7 @@
 <!-- HERO / ENCABEZADO -->
 <div class="container mt-4">
 
-    <div class="p-5 bg-dark text-white rounded-3 shadow">
+    <div class="p-5 text-white rounded-3 shadow hero-box">
 
         <div class="text-center">
 
@@ -36,7 +36,7 @@
 
         <div class="col-md-4 mb-4">
 
-            <div class="card shadow">
+            <div class="card shadow card-empleados">
 
                 <div class="card-body">
 
@@ -57,7 +57,7 @@
 
         <div class="col-md-4 mb-4">
 
-            <div class="card shadow">
+            <div class="card shadow card-departamentos">
 
                 <div class="card-body">
 
@@ -78,7 +78,7 @@
 
         <div class="col-md-4 mb-4">
 
-            <div class="card shadow">
+            <div class="card shadow card-activos">
 
                 <div class="card-body">
 

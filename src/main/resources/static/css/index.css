@@ -1,0 +1,329 @@
+/* =========================
+   FONDO GENERAL
+========================= */
+
+body {
+    background: linear-gradient(180deg, #f0f4fa, #d4e0f0);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+/* =========================
+   HERO / ENCABEZADO
+========================= */
+
+.hero-box {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    transition: transform .3s ease;
+    border-radius: 15px;
+}
+
+.hero-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 51, 102, 0.3);
+}
+
+/* =========================
+   DASHBOARD CARDS - MEJORADAS
+========================= */
+
+.card {
+    border: none;
+    border-radius: 16px;
+    transition: all .35s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+/* efecto flotante */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* iconos */
+.card i {
+    transition: transform .35s ease;
+}
+
+/* rotacion icono */
+.card:hover i {
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* Colores distintivos para cada tarjeta */
+
+/* Tarjeta Empleados - Azul */
+.card-empleados {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border-left: 5px solid #00c6fb;
+}
+
+.card-empleados .display-4 {
+    color: #00c6fb;
+}
+
+.card-empleados:hover {
+    background: linear-gradient(135deg, #163458, #1f3f7a);
+}
+
+/* Tarjeta Departamentos - Verde */
+.card-departamentos {
+    background: linear-gradient(135deg, #0b4f3a, #1b7a5e);
+    color: white;
+    border-left: 5px solid #90ffa7;
+}
+
+.card-departamentos .display-4 {
+    color: #90ffa7;
+}
+
+.card-departamentos:hover {
+    background: linear-gradient(135deg, #093f2f, #13644d);
+}
+
+/* Tarjeta Activos - Ámbar */
+.card-activos {
+    background: linear-gradient(135deg, #b45c1a, #d97706);
+    color: white;
+    border-left: 5px solid #ffd966;
+}
+
+.card-activos .display-4 {
+    color: #ffd966;
+}
+
+.card-activos:hover {
+    background: linear-gradient(135deg, #9e4e16, #bd6905);
+}
+
+/* =========================
+   FILTROS - MEJORADOS
+========================= */
+
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.1);
+    border: 1px solid rgba(30, 60, 114, 0.1);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 8px;
+}
+
+.form-select, .form-control {
+    border: 2px solid #e0e7ff;
+    border-radius: 10px;
+    padding: 8px 12px;
+    transition: all .2s ease;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #2a5298;
+    box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.2);
+}
+
+/* =========================
+   TABLA EMPLEADOS - MEJORADA
+========================= */
+
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.1) !important;
+}
+
+.table thead {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    letter-spacing: .5px;
+}
+
+.table thead th {
+    border: none;
+    padding: 15px;
+    font-weight: 500;
+}
+
+.table tbody tr {
+    transition: all .25s ease;
+    background: white;
+}
+
+.table tbody tr:hover {
+    background: #f0f7ff;
+    transform: scale(1.005);
+    box-shadow: 0 4px 12px rgba(30, 60, 114, 0.1);
+}
+
+.table td {
+    padding: 15px;
+    vertical-align: middle;
+    border-color: #e0e7ff;
+}
+
+/* =========================
+   BOTONES - MEJORADOS
+========================= */
+
+.btn {
+    transition: all .25s ease;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #163458, #1f3f7a);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border: none;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #b91c1c, #991b1b);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #4b5563, #374151);
+    border: none;
+}
+
+/* =========================
+   BADGES ESTADO - MEJORADOS
+========================= */
+
+.badge {
+    font-size: .85rem;
+    padding: 8px 14px;
+    border-radius: 25px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.badge.bg-success {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+}
+
+.badge.bg-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+/* =========================
+   TITULOS - MEJORADOS
+========================= */
+
+h1, h3, h5 {
+    font-weight: 600;
+}
+
+h1 {
+    background: linear-gradient(135deg, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h3 {
+    color: #1e3c72;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border-radius: 3px;
+}
+
+/* =========================
+   ANIMACIONES ADICIONALES
+========================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .display-6 {
+        font-size: 1.8rem;
+    }
+
+    .hero-box {
+        margin-top: 20px;
+    }
+
+    form .col-md-3 {
+        margin-bottom: 15px;
+    }
+}
+
+/* =========================
+   SCROLLBAR PERSONALIZADO
+========================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f4fa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #163458, #1f3f7a);
+}

@@ -124,6 +124,12 @@ public class IndexControlador {
         return "index";
     }
 
+    @RequestMapping("/activos")
+    public String listarActivos(ModelMap modelo){
+        modelo.put("empleados", empleadoServicio.listarEmpleadosActivos());
+        return "index";
+    }
+
 
 
 
