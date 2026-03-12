@@ -37,7 +37,7 @@
         <div class="mb-3">
             <label for="sueldo" class="form-label">Sueldo</label>
             <input type="number" step="any" class="form-control" id="sueldo" name="sueldo" required
-                   value="${empleado.sueldo}">" >
+                   value="${empleado.sueldo}" >
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox"
@@ -45,7 +45,7 @@
                    id="activo"
                    name="activo"
                    value="true"
-                ${empleado.activo ? 'checked="checked"' : ''}>>
+                ${empleado.activo ? 'checked="checked"' : ''}>
 
             <label class="form-check-label" for="activo">
                 Empleado Activo
