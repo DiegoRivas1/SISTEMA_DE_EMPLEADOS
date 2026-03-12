@@ -20,6 +20,11 @@ public class Empleado {
     Departamento departamento;
     String sueldo;
     boolean activo;
+
+    //Solo peude tener metoidos que operen ensu misma entidad,m con sus datos
+    public String getEstado() {
+        return activo ? "Activo" : "Inactivo";
+    }
 }
 
 

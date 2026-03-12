@@ -2,7 +2,7 @@
 
 <!-- NAVBAR -->
 <%@include file="comunes/navegacion.jsp"%>
-
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!-- HERO / ENCABEZADO -->
 <div class="container mt-4">
 
@@ -18,7 +18,7 @@
                 Administra y controla los empleados de tu empresa facilmente
             </p>
 
-            <a href="/agregar" class="btn btn-primary btn-lg">
+            <a href="${ctx}/agregar" class="btn btn-primary btn-lg">
                 <i class="bi bi-person-plus"></i> Agregar Empleado
             </a>
 
@@ -87,7 +87,7 @@
                     <h5 class="card-title mt-3">Activos</h5>
 
                     <p class="display-6">
-                        20
+                        ${empleadosActivos.size()}
                     </p>
 
                 </div>
@@ -99,6 +99,9 @@
     </div>
 
 </div>
+
+<!-- Filtros para tabla -->
+
 
 
 <!-- TABLA EJEMPLO -->
@@ -116,6 +119,7 @@
                 <th>Nombre</th>
                 <th>Departamento</th>
                 <th>Sueldo</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -130,6 +134,26 @@
                         <fmt:setLocale value="en_US"/>
                         <fmt:formatNumber type="currency" value="${empleado.sueldo}"/>
                     </td>
+                    <td>
+                        <span class="badge ${empleado.activo ? 'bg-success' : 'bg-danger'}">
+                                ${empleado.estado}
+                        </span>
+                    </td>
+
+                    <!--
+                     <td>
+                        <c:choose>
+                            <c:when test="${empleado.activo}">
+                                <span class="badge bg-success">Activo</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="badge bg-danger">Inactivo</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                     -->
+
+
                     <td>
                         <button class="btn btn-warning btn-sm">
                             <i class="bi bi-pencil"></i>
