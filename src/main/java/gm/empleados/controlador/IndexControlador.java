@@ -34,10 +34,13 @@ public class IndexControlador {
         modelo.put("empleadosActivos", empleadosActivos);
         return "index";//index.jsp
     }
+    /*
     @RequestMapping(value =   "/agregar", method = RequestMethod.GET)
     public String mostrarAgregar(){
+
         return "agregar";//agregar.jsp
     }
+     */
 
     //empleadoForma modelAttribute en form de agregar.jsp
     @RequestMapping(value = "/agregar", method = RequestMethod.POST)
@@ -46,4 +49,15 @@ public class IndexControlador {
         empleadoServicio.guardarEmpleado(empleado);
         return "redirect:/";//redirige al path /
     }
+
+    @RequestMapping(value = "/agregar", method = RequestMethod.GET)
+    public String mostrarAgregar(ModelMap model){
+        model.put("departamentos", Departamento.values());
+        //modelo.put("empleadoForma", new Empleado());
+        return "agregar";//agregar.jsp
+    }
+
+
+
+
 }

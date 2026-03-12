@@ -152,12 +152,12 @@
                         </c:choose>
                     </td>
                      -->
-
-
                     <td>
+                        <!-- Modificar -->
                         <button class="btn btn-warning btn-sm">
                             <i class="bi bi-pencil"></i>
                         </button>
+                        <!-- Eliminar -->
                         <button class="btn btn-danger btn-sm">
                             <i class="bi bi-trash"></i>
                         </button>
