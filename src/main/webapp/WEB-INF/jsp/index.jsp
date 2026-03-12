@@ -114,33 +114,33 @@
     <table class="table table-striped table-hover shadow">
 
         <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Departamento</th>
-                <th>Sueldo</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-            </tr>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Departamento</th>
+            <th>Sueldo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
         </thead>
 
         <tbody>
-            <c:forEach var="empleado" items="${empleados}">
-                <tr>
-                    <td>${empleado.idEmpleado}</td>
-                    <td>${empleado.nombreEmpleado}</td>
-                    <td>${empleado.departamento}</td>
-                    <td>
-                        <fmt:setLocale value="en_US"/>
-                        <fmt:formatNumber type="currency" value="${empleado.sueldo}"/>
-                    </td>
-                    <td>
+        <c:forEach var="empleado" items="${empleados}">
+            <tr>
+                <td>${empleado.idEmpleado}</td>
+                <td>${empleado.nombreEmpleado}</td>
+                <td>${empleado.departamento}</td>
+                <td>
+                    <fmt:setLocale value="en_US"/>
+                    <fmt:formatNumber type="currency" value="${empleado.sueldo}"/>
+                </td>
+                <td>
                         <span class="badge ${empleado.activo ? 'bg-success' : 'bg-danger'}">
                                 ${empleado.estado}
                         </span>
-                    </td>
+                </td>
 
-                    <!--
+                <!--
                      <td>
                         <c:choose>
                             <c:when test="${empleado.activo}">
@@ -152,33 +152,45 @@
                         </c:choose>
                     </td>
                      -->
-                    <td>
-                        <!-- Modificar -->
-                        <button class="btn btn-warning btn-sm">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-                        <!-- Eliminar -->
-                        <button class="btn btn-danger btn-sm">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            </c:forEach>
-            <!--
-             <tr>
-                <td>1</td>
-                <td>Juan Perez</td>
-                <td>IT</td>
-                <td>$3000</td>
                 <td>
+                    <!-- Modificar -->
+                    <!-- Modificar /empleados/editar?idEmpleado=3 -->
+                    <!-- agrega automaticamente ctx/editar -->
+                    <c:set var="urlEditar">
+                        <c:url value="/editar">
+                            <c:param name="idEmpleado"
+                                     value="${empleado.idEmpleado}"/>
+                        </c:url>
+                    </c:set>
 
-                    <button class="btn btn-warning btn-sm">
+
+                    <a href="${urlEditar}"
+                       class="btn btn-warning btn-sm">
                         <i class="bi bi-pencil"></i>
-                    </button>
+                    </a>
 
+                    <!-- Eliminar -->
                     <button class="btn btn-danger btn-sm">
                         <i class="bi bi-trash"></i>
                     </button>
+                </td>
+            </tr>
+        </c:forEach>
+        <!--
+         <tr>
+            <td>1</td>
+            <td>Juan Perez</td>
+            <td>IT</td>
+            <td>$3000</td>
+            <td>
+
+                <button class="btn btn-warning btn-sm">
+                    <i class="bi bi-pencil"></i>
+                </button>
+
+                <button class="btn btn-danger btn-sm">
+                    <i class="bi bi-trash"></i>
+                </button>
 
                 </td>
             </tr>
@@ -192,4 +204,3 @@
 
 <!-- JS Bootstrap Pie de pagina-->
 <%@include file="comunes/pie-pagina.jsp"%>
-
