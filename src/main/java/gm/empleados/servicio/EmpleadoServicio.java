@@ -54,4 +54,12 @@ public class EmpleadoServicio implements IEmpleadoServicio{
     public  List<Empleado> listarPorDepartamento(Departamento departamento){
         return empleadoRepositorio.findByDepartamento(departamento);
     }
+    @Override
+    public List<Empleado> listarPorActivoYDepartamento(Boolean activo, Departamento departamento){
+        return empleadoRepositorio.findByActivoAndDepartamento(activo, departamento);
+    }
+    @Override
+    public List<Empleado> listarPorActivo(Boolean activo){
+        return empleadoRepositorio.findByActivo(activo);
+    }
 }

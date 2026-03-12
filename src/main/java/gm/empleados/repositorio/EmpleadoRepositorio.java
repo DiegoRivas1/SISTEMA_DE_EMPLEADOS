@@ -10,4 +10,6 @@ public interface EmpleadoRepositorio extends JpaRepository<Empleado, Integer> {
 
     List<Empleado> findByActivoTrue();
     List<Empleado> findByDepartamento(Departamento departamento);
+    List<Empleado> findByActivoAndDepartamento(Boolean activo, Departamento departamento);
+    List<Empleado> findByActivo(Boolean activo);
 }

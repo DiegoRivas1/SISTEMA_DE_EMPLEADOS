@@ -14,4 +14,7 @@ public interface IEmpleadoServicio {
 
     public List<Empleado> listarEmpleadosActivos();
     public List<Empleado> listarPorDepartamento(Departamento departamento);
+
+    public List<Empleado> listarPorActivoYDepartamento(Boolean activo, Departamento departamento);
+    public List<Empleado> listarPorActivo(Boolean activo);
 }

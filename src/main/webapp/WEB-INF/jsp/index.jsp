@@ -102,7 +102,48 @@
 
 <!-- Filtros para tabla -->
 
+<div class="container mt-4">
 
+    <form action="${ctx}/filtrar" method="get" class="row g-3">
+
+        <!-- filtro activo -->
+        <div class="col-md-3">
+            <label class="form-label">Estado</label>
+            <select name="activo" class="form-select">
+                <option value="">Todos</option>
+                <option value="true">Activos</option>
+                <option value="false">Inactivos</option>
+            </select>
+        </div>
+
+        <!-- filtro departamento -->
+        <div class="col-md-3">
+            <label class="form-label">Departamento</label>
+            <select name="departamento" class="form-select">
+                <option value="">Todos</option>
+
+                <c:forEach var="dep" items="${departamentos}">
+                    <option value="${dep}">
+                            ${dep}
+                    </option>
+                </c:forEach>
+
+            </select>
+        </div>
+
+        <div class="col-md-3 align-self-end">
+            <button class="btn btn-primary">
+                Filtrar
+            </button>
+
+            <a href="${ctx}/" class="btn btn-secondary">
+                Limpiar
+            </a>
+        </div>
+
+    </form>
+
+</div>
 
 <!-- TABLA EJEMPLO -->
 <div class="container mt-5">
