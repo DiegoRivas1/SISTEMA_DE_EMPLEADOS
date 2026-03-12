@@ -10,7 +10,7 @@
         </h3>
     </div>
 
-    <form:form action="${ctx}/agregar" modelAttribute="empleadoForma" method="post">
+    <form action="${ctx}/agregar" modelAttribute="empleadoForma" method="post">
         <div class="mb-3">
             <label for="nombreEmpleado" class="form-label">Nombre Empleado</label>
             <input type="text" class="form-control" id="nombreEmpleado" name="nombreEmpleado" required>
@@ -53,7 +53,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="${ctx}/" class="btn btn-danger btn-sm">Regresar</a>
         </div>
-    </form:form>
+    </form>
 </div>
 
 <%@include file="comunes/pie-pagina.jsp"%>

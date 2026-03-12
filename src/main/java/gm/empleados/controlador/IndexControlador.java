@@ -75,6 +75,13 @@ public class IndexControlador {
         return "redirect:/"; //para que se llame de neuvo e index para que se recargue la linea de empleados
     }
 
+    @RequestMapping(value = "/eliminar", method = RequestMethod.GET)
+    public String eliminar(@RequestParam int idEmpleado){
+        Empleado empleadoEliminar = empleadoServicio.buscarEmpleadoPorId(idEmpleado);
+        empleadoServicio.eliminarEmpleado(empleadoEliminar);
+        return "redirect:/";
+    }
+
 
 
 

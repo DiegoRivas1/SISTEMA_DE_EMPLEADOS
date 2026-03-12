@@ -170,9 +170,18 @@
                     </a>
 
                     <!-- Eliminar -->
-                    <button class="btn btn-danger btn-sm">
+                    <!-- Eliminar /empleados/eliminar?idEmpleado=3 -->
+                    <c:set var="urlEliminar">
+                        <c:url value="/eliminar">
+                            <c:param name="idEmpleado"
+                                     value="${empleado.idEmpleado}"/>
+                        </c:url>
+                    </c:set>
+                    <a href="${urlEliminar}"
+                       class="btn btn-danger btn-sm">
                         <i class="bi bi-trash"></i>
-                    </button>
+                    </a>
+
                 </td>
             </tr>
         </c:forEach>
