@@ -1,0 +1,40 @@
+version: '4'
+#build: SISTEMA_EMPLEADOS_JSP_SPRING_BOOT nombre de la carpeta del proyecto donde esta Dockerfile
+services:
+  empleados:
+    #build: SISTEMA_EMPLEADOS_JSP_SPRING_BOOT (subcarpeta)
+    build: .
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    environment:
+      APP_NAME: ${APP_NAME}
+      #DB_URL: jdbc:mysql://mysql:3306/empleados_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true #jdbc:mysql://host.docker.internal:3306/empleados_db
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      SERVER_PATH: ${SERVER_PATH}
+      SERVER_PORT: ${SERVER_PORT}
+      JSP_PREFIX: ${JSP_PREFIX}
+      MAXIMUM_POOL_SIZE: ${MAXIMUM_POOL_SIZE}
+      CONNECTION_TIMEOUT: ${CONNECTION_TIMEOUT}
+    restart: always
+    depends_on:
+      mysql:
+        condition: service_healthy
+  mysql:
+    image: mysql:8.0.30
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: empleados_db
+      #MYSQL_USER: empleados_user
+      #MYSQL_PASSWORD: Asd-1098#
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+#PUERTO DE TU PC (HOST)   →   PUERTO DEL CONTENEDOR
+# a 3307                     →   3306
