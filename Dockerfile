@@ -16,29 +16,26 @@
 
 ##Corriendo el servicio desde render si subir target a github
 # ---------- BUILD ----------
-#FROM maven:3.9-eclipse-temurin-25 AS build
-#WORKDIR /app
-
-#COPY pom.xml .
-#COPY src ./src
-
-#RUN mvn clean package -DskipTests
+FROM maven:3.9-eclipse-temurin-25 AS build
+WORKDIR /app
+COPY pom.xml .
+# Descarga dependencias primero (cache de Docker)
+RUN mvn dependency:go-offline -B
+COPY src ./src
+RUN mvn clean package -DskipTests
 
 # ---------- RUNTIME ----------
+FROM eclipse-temurin:25-jdk-jammy
+WORKDIR /app
+COPY --from=build /app/target/empleados-0.0.1-SNAPSHOT.war app.war
+
+ENTRYPOINT ["sh", "-c", "java -XX:TieredStopAtLevel=1 -Xms128m -Xmx400m -jar app.war --server.port=${PORT:-8080}"]
+
+##Subiendo target a github
 #FROM eclipse-temurin:25-jdk-jammy
 #WORKDIR /app
 
-# Copia el WAR (no JAR) desde build
-#COPY --from=build /app/target/empleados-0.0.1-SNAPSHOT.war app.war
-
-# CRÍTICO: Render inyecta $PORT — Spring Boot debe escuchar ahí
-#ENTRYPOINT ["sh", "-c", "java -jar app.war --server.port=${PORT:-8080}"]
-
-##Subiendo target a github
-FROM eclipse-temurin:25-jdk-jammy
-WORKDIR /app
-
 # Solo copia el WAR pre-compilado del repo
-COPY target/empleados-0.0.1-SNAPSHOT.war app.war
+#COPY target/empleados-0.0.1-SNAPSHOT.war app.war
 
-ENTRYPOINT ["sh", "-c", "java -XX:TieredStopAtLevel=1 -Xms128m -Xmx400m -jar app.war --server.port=${PORT:-8080}"]
+#ENTRYPOINT ["sh", "-c", "java -XX:TieredStopAtLevel=1 -Xms128m -Xmx400m -jar app.war --server.port=${PORT:-8080}"]
