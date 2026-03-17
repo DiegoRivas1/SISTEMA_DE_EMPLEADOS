@@ -16,7 +16,7 @@
 
 # ---------- BUILD ----------
 FROM maven:3.9-eclipse-temurin-25 AS build
-WORKDIR /
+WORKDIR /app
 
 COPY pom.xml .
 COPY src ./src
@@ -25,9 +25,10 @@ RUN mvn clean package -DskipTests
 
 # ---------- RUNTIME ----------
 FROM eclipse-temurin:25-jdk-jammy
-WORKDIR /
+WORKDIR /app
 
-# Copiamos el JAR desde la etapa build
-COPY --from=build /target/empleados-0.0.1-SNAPSHOT.jar app.jar
+# Copia el WAR (no JAR) desde build
+COPY --from=build /app/target/empleados-0.0.1-SNAPSHOT.war app.war
 
-ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=$PORT"]
+# CRÍTICO: Render inyecta $PORT — Spring Boot debe escuchar ahí
+ENTRYPOINT ["sh", "-c", "java -jar app.war --server.port=${PORT:-8080}"]
