@@ -19,10 +19,8 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:25-jdk-jammy
 WORKDIR /app
 
-COPY --from=build /app/target/*.jar app.jar
+# Copiamos el JAR generado y lo renombramos
+COPY target/empleados-0.0.1-SNAPSHOT.jar app.jar
 
-# No es necesario EXPOSE para Render
-#EXPOSE 8080
-
-# ENTRYPOINT directo, usando la variable PORT de Render
+# Usamos el ENTRYPOINT con variable PORT de Render
 ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=$PORT"]
